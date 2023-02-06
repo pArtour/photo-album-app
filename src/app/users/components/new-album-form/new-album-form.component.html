@@ -1,0 +1,22 @@
+<form
+  class="flex flex-col mb-4 pb-8 border-b-2 border-gray-600"
+  [formGroup]="albumForm"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="flex flex-col mb-2">
+    <label for="title">New album url</label>
+    <input
+      type="text"
+      name="title"
+      id="title"
+      class="p-2 border-2 border-gray-600 rounded-lg"
+      formControlName="title"
+    />
+  </div>
+  <button
+    class="w-full md:mb-0 md:w-auto bg-gray-800 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg disabled:bg-gray-400"
+    type="submit"
+  >
+    Submit
+  </button>
+</form>

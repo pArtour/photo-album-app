@@ -1,0 +1,40 @@
+<div class="flex flex-col">
+  <ng-container *ngIf="album; else albumLoading">
+    <div class="flex flex-col mb-6">
+      <h1 class="font-bold text-4xl mb-2">{{ album.title | capitalize }}</h1>
+      <a [routerLink]="['/users/', album.userId]" class="mb-4 underline"
+        >Back to user</a
+      >
+      <app-album-action-buttons
+        [showUpdateButton]="updateFormShown"
+        [showCreatePhotoButton]="newPhotoFormShown"
+        (updateButtonClick)="showUpdateForm()"
+        (cancelUpdateButtonClick)="hideUpdateForm()"
+        (deleteButtonClick)="deleteAlbum()"
+        (createPhotoButtonClick)="showNewPhotoForm()"
+      ></app-album-action-buttons>
+    </div>
+    <app-album-new-photo-form
+      *ngIf="newPhotoFormShown"
+      (formSubmit)="createPhoto($event)"
+    ></app-album-new-photo-form>
+    <app-album-update-form
+      *ngIf="updateFormShown"
+      [album]="album"
+      (updateButtonClick)="updateAlbum($event)"
+    ></app-album-update-form>
+    <app-album-photos-list
+      *ngIf="photos; else photosLoading"
+      [photos]="photos"
+      (deleteButtonClick)="deletePhoto($event)"
+    ></app-album-photos-list>
+  </ng-container>
+</div>
+
+<ng-template #albumLoading>
+  <p>Album details loading...</p>
+</ng-template>
+
+<ng-template #photosLoading>
+  <p>Photos loading...</p>
+</ng-template>

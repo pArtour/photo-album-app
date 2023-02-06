@@ -1,0 +1,10 @@
+<ul>
+  <li class="mb-2 last:mb-0" *ngFor="let user of users">
+    <a
+      class="text-gray-900 text-xl hover:text-gray-500 focus:text-gray-500 focus:outline-none"
+      [routerLink]="['/users', user.id]"
+    >
+      {{ user.name }}
+    </a>
+  </li>
+</ul>

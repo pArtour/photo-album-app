@@ -1,0 +1,9 @@
+<ul class="flex flex-col">
+  <li class="mb-2 w-full" *ngFor="let album of albums; trackBy: trackById">
+    <a
+      class="block w-full px-4 py-2 border-2 rounded-lg text-gray-800 border-gray-800 hover:border-gray-400 hover:text-gray-400 focus:outline-none focus:border-gray-500 focus:text-gray-400"
+      [routerLink]="['/albums', album.id]"
+      >{{ album.title | capitalize }}</a
+    >
+  </li>
+</ul>

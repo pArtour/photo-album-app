@@ -1,0 +1,22 @@
+<table class="w-full table-fixed border rounded-sm border-gray-600 text-left">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="p-2">Id</th>
+      <th class="p-2">User Id</th>
+      <th class="p-2">Action</th>
+      <th class="p-2">Entity</th>
+      <th class="p-2">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="hover:bg-gray-200" *ngFor="let log of logs">
+      <td class="p-2">{{ log.id }}</td>
+      <td class="p-2">
+        <a class="underline" [routerLink]="['/users/', log.userId]">{{ log.userId }}</a>
+      </td>
+      <td class="p-2">{{ log.action }}</td>
+      <td class="p-2">{{ log.entity }}</td>
+      <td class="p-2">{{ log.date | date : 'long' }}</td>
+    </tr>
+  </tbody>
+</table>

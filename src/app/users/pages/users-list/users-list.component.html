@@ -1,0 +1,7 @@
+<ng-container *ngIf="users$ | async as users; else loading">
+  <app-users-list [users]="users"></app-users-list>
+</ng-container>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>

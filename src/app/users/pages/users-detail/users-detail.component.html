@@ -1,0 +1,31 @@
+<div class="mb-8" *ngIf="user">
+  <app-user-info [user]="user"></app-user-info>
+  <app-user-metrics
+    *ngIf="metrics && albums"
+    [albums]="albums"
+    [metrics]="metrics"
+  ></app-user-metrics>
+  <app-user-action-buttons
+    [createAlbumFormShown]="newAlbumFormShown"
+    [createPhotoFormShown]="newPhotoFormShown"
+    (createAlbumButtonClick)="showCreateAlbumForm()"
+    (cancelCreateAlbumButtonClick)="hideCreateAlbumForm()"
+    (createPhotoButtonClick)="showCreatePhotoForm()"
+    (cancelPhotoCreateButtonClick)="hideCreatePhotoForm()"
+  ></app-user-action-buttons>
+</div>
+<div>
+  <app-new-album-form
+    *ngIf="newAlbumFormShown"
+    (formSubmit)="createNewAlbum($event)"
+  ></app-new-album-form>
+  <app-new-photo-form
+    *ngIf="newPhotoFormShown && albums"
+    [albums]="albums"
+    (formSubmit)="createNewPhoto($event)"
+  ></app-new-photo-form>
+</div>
+<app-user-albums-list
+  *ngIf="albums && albums.length"
+  [albums]="albums"
+></app-user-albums-list>

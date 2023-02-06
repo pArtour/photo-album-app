@@ -1,0 +1,25 @@
+<header class="bg-gray-800 py-4 px-4 md:px-10">
+  <h1 class="mb-2 text-white font-medium text-xl">Photo Album Web App</h1>
+  <nav class="flex items-center justify-between">
+    <ul class="flex items-center last:mr-2">
+      <li class="mr-4">
+        <a
+          routerLinkActive="underline"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="text-white hover:text-gray-400"
+          routerLink="/users"
+          >Users</a
+        >
+      </li>
+      <li>
+        <a
+          routerLinkActive="underline"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="text-white hover:text-gray-400"
+          routerLink="/logs"
+          >Logs</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>
